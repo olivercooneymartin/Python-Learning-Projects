@@ -1,51 +1,57 @@
 import csv
-
-compromised_users = []
-
-with open("passwords.csv") as password_file:
-  password_csv = csv.DictReader(password_file)
-  for row in password_csv:
-    password_row = row
-    compromised_users.append((password_row["Username"]))
-
-with open("compromised_users.txt", "w") as compromised_user_file:
-  for user in compromised_users:
-    compromised_user_file.write(user + "\n")
-
 import json
 
+# This program reads a CSV file of passwords,
+# collects compromised usernames, and writes them to a text file.
+# It also creates a JSON message and a new file with a warning message.
+
+# List to store compromised usernames
+compromised_users = []
+
+# Open the passwords CSV file and read it
+with open("passwords.csv") as password_file:
+    password_csv = csv.DictReader(password_file)
+
+    # Loop through each row in the CSV file
+    for row in password_csv:
+        # Add the username from each row to the list
+        compromised_users.append(row["Username"])
+
+# Write the compromised usernames to a text file
+with open("compromised_users.txt", "w") as compromised_user_file:
+    for user in compromised_users:
+        compromised_user_file.write(user + "\n")
+
+# Create a JSON file with a message to the boss
 with open("boss_message.json", "w") as boss_message:
-  boss_message_dict = {"recipient": "The Boss", "message": "Missions Success"}
-  json.dump(boss_message_dict, boss_message)
+    boss_message_dict = {
+        "recipient": "The Boss",
+        "message": "Mission Success"
+    }
+    json.dump(boss_message_dict, boss_message)
 
+# Create a new passwords file and write a warning message (ASCII art)
 with open("new_passwords.csv", "w") as new_passwords_obj:
-  slash_null_sig = """
 
+    # ASCII art message (just for fun / warning)
+    slash_null_sig = """
   _  _     ___   __  ____             
-  / )( \   / __) /  \(_  _)            
-  ) \/ (  ( (_ \(  O ) )(              
-  \____/   \___/ \__/ (__)             
+ / )( \\   / __) /  \\(_  _)            
+ ) \\/ (  ( (_ \\(  O ) )(              
+ \\____/   \\___/ \\__/ (__)             
   _  _   __    ___  __ _  ____  ____  
-  / )( \ / _\  / __)(  / )(  __)(    \ 
-  ) __ (/    \( (__  )  (  ) _)  ) D ( 
-  \_)(_/\_/\_/ \___)(__\_)(____)(____/ 
-          ____  __     __   ____  _  _ 
-  ___   / ___)(  )   / _\ / ___)/ )( \
-  (___)  \___ \/ (_/\/    \\___ \) __ (
-        (____/\____/\_/\_/(____/\_)(_/
-  __ _  _  _  __    __                
-  (  ( \/ )( \(  )  (  )               
-  /    /) \/ (/ (_/\/ (_/\             
-  \_)__)\____/\____/\____/
+ / )( \\ / _\\  / __)(  / )(  __)(    \\ 
+ ) __ (/    \\( (__  )  (  ) _)  ) D ( 
+ \\_)(_\\/\\/\\_/ \\___)(__\\_)(____)(____/ 
+        ____  __     __   ____  _  _ 
+ ___   / ___)(  )   / _\\ / ___)/ )( \\
+(___)  \\___ \\/ (_/\\/    \\\\___ \\) __ (
+       (____/\\____/\\_/\\_/(____/\\_)(_/
+ __ _  _  _  __    __                
+(  ( \\/ )( \\(  )  (  )               
+/    /) \\/ (/ (_/\\/ (_/\\             
+\\_)__)\\____/\\____/\\____/
+"""
 
-  """
-  new_passwords_obj.write(slash_null_sig)
-
-
-
-
-
-
-
-  
-
+    # Write the ASCII art to the new file
+    new_passwords_obj.write(slash_null_sig)
