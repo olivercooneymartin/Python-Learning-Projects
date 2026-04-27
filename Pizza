@@ -1,3 +1,11 @@
+# This program works with a list of pizza toppings and their prices.
+# It performs simple operations such as counting how many pizzas cost $2,
+# determining how many different pizzas are sold, and combining the toppings
+# with their prices into a single list. The program then sorts the pizzas
+# by price, identifies the cheapest and most expensive options, updates the
+# menu by removing and adding items, and prints out the results.
+
+
 # List of pizza toppings sold by the shop
 toppings = [
     "pepperoni",
