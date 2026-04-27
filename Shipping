@@ -1,41 +1,55 @@
+# This program calculates shipping costs using ground, premium, and drone shipping
+# based on package weight.
+
+# Weight for ground shipping
 weight = 8.4
 
+# Weight for drone shipping
 d_weight = 1.5
 
+
+# ----- Ground Shipping -----
 print("Ground Shipping")
 
+# Calculate cost based on weight tiers
 if weight <= 2:
-  cost = ((weight * 1.50) + 20.00)
+  cost = (weight * 1.50) + 20.00
 
-elif weight > 2 and weight <= 6:
-    cost = ((weight * 3.00) + 20.00)
+elif weight <= 6:
+  cost = (weight * 3.00) + 20.00
 
-elif weight > 6 and weight <= 10:
-  cost = ((weight * 4.00) + 20.00)
+elif weight <= 10:
+  cost = (weight * 4.00) + 20.00
 
-elif weight > 10:
-  cost = ((weight * 4.75) + 20.00)
+else:
+  cost = (weight * 4.75) + 20.00
 
+# Print ground shipping cost
 print(cost)
 
 
+# ----- Premium Ground Shipping -----
+# Flat rate regardless of weight
 premium_cost = 125.00
 
 print(premium_cost)
 
 
+# ----- Drone Shipping -----
 print("Drone Shipping")
 
+# Calculate drone shipping cost based on weight tiers
 if d_weight <= 2:
-  d_cost = (d_weight * 4.50)
+  d_cost = d_weight * 4.50
 
-elif d_weight > 2 and d_weight <= 6:
-    d_cost = (d_weight * 9.00)
+elif d_weight <= 6:
+  d_cost = d_weight * 9.00
 
-elif d_weight > 6 and d_weight <= 10:
-    d_cost = (d_weight * 12.00)
+elif d_weight <= 10:
+  d_cost = d_weight * 12.00
 
-elif d_weight > 10:
-    d_cost = (d_weight * 14.25) 
+else:
+  d_cost = d_weight * 14.25
 
+# Print drone shipping cost
 print(d_cost)
