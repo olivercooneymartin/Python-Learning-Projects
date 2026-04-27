@@ -1,22 +1,41 @@
-last_semester_gradebook = [["politics", 80], ["latin", 96], ["dance", 97], ["architecture", 65]]
+# This program works with lists to store and update a student's gradebook.
 
+# Grades from last semester (each subject has a score)
+last_semester_gradebook = [
+    ["politics", 80],
+    ["latin", 96],
+    ["dance", 97],
+    ["architecture", 65]
+]
+
+# Current semester subjects and grades stored separately
 subjects = ["physics", "calculus", "poetry", "history"]
-
 grades = [98, 97, 85, 88]
 
-gradebook = [["physics",	98], ["calculus",	97], ["poetry",	85], ["history",	88]]
+# Combine subjects and grades into a gradebook (list of lists)
+gradebook = [
+    ["physics", 98],
+    ["calculus", 97],
+    ["poetry", 85],
+    ["history", 88]
+]
 
+# Add new classes to the gradebook
 gradebook.append(["computer science", 100])
-
 gradebook.append(["visual arts", 93])
 
+# Update the grade for "visual arts" (index 5, grade position 1)
 gradebook[5][1] = 98
 
+# Change the grade for "poetry" from a number to "Pass"
+# First remove the old grade (85)
 gradebook[2].remove(85)
 
+# Then add the new grade ("Pass")
 gradebook[2].append("Pass")
 
+# Combine last semester and current semester gradebooks
 full_gradebook = last_semester_gradebook + gradebook
 
-
+# Print the final combined gradebook
 print(full_gradebook)
