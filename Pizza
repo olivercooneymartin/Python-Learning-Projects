@@ -1,30 +1,55 @@
+# List of pizza toppings sold by the shop
+toppings = [
+    "pepperoni",
+    "pineapple",
+    "cheese",
+    "sausage",
+    "olives",
+    "anchovies",
+    "mushrooms"
+]
 
-toppings = ["pepperoni", "pineapple", "cheese", "sausage", "olives", "anchovies", "mushrooms"]
-
+# List of prices that match the toppings above
 prices = [2, 6, 1, 3, 2, 7, 2]
 
+# Count how many pizzas cost exactly $2
 num_two_dollar_slices = prices.count(2)
 
 print(num_two_dollar_slices)
 
+# Count how many different kinds of pizza are sold
 num_pizzas = len(toppings)
 
 print("We sell " + str(num_pizzas) + " different kinds of pizza!")
 
-pizza_and_prices = [[2,	"pepperoni"], [6, "pineapple"], [1,	"cheese"], [3,	"sausage"], [2,	"olives"], [7,	"anchovies"], [2,	"mushrooms"]]
+# Create a list that pairs each pizza price with its topping
+pizza_and_prices = [
+    [2, "pepperoni"],
+    [6, "pineapple"],
+    [1, "cheese"],
+    [3, "sausage"],
+    [2, "olives"],
+    [7, "anchovies"],
+    [2, "mushrooms"]
+]
 
+# Sort the pizzas from cheapest to most expensive
 pizza_and_prices.sort()
 
+# Store the cheapest and most expensive pizzas
 cheapest_pizza = pizza_and_prices[0]
-
 priciest_pizza = pizza_and_prices[-1]
 
+# Remove the anchovies pizza from the list
 pizza_and_prices.pop(5)
 
+# Add peppers as a new $2.50 pizza option
 pizza_and_prices.insert(1, [2.5, "peppers"])
 
+# Print the updated list of pizzas and prices
 print(pizza_and_prices)
 
+# Store the four cheapest pizzas
 three_cheapest = pizza_and_prices[:4]
 
 print(three_cheapest)
