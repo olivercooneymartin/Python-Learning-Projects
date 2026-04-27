@@ -1,43 +1,69 @@
-hairstyles = ["bouffant", "pixie", "dreadlocks", "crew", "bowl", "bob", "mohawk", "flattop"]
+# This program analyzes haircut prices and sales data.
 
+# List of hairstyle names
+hairstyles = [
+    "bouffant", "pixie", "dreadlocks", "crew",
+    "bowl", "bob", "mohawk", "flattop"
+]
+
+# Corresponding prices for each hairstyle
 prices = [30, 25, 40, 20, 20, 35, 50, 35]
 
+# Number of times each hairstyle was sold last week
 last_week = [2, 3, 5, 8, 4, 4, 6, 2]
 
-total_price = 0 
+# -----------------------------
+# Calculate average haircut price
+# -----------------------------
 
+total_price = 0
+
+# Add up all prices
 for price in prices:
-  total_price += price
+    total_price += price
 
-average_price = total_price / 8
+# Divide by number of hairstyles to get average
+average_price = total_price / len(prices)
 
 print("Average Haircut Price: " + str(average_price))
 
+# -----------------------------
+# Create new prices (discounted by $5)
+# -----------------------------
+
+# Use a list comprehension to subtract 5 from each price
 new_prices = [price - 5 for price in prices]
 
-print(new_prices)
+print("New Prices: " + str(new_prices))
 
-total_revenue = 0 
+# -----------------------------
+# Calculate total weekly revenue
+# -----------------------------
 
+total_revenue = 0
+
+# Multiply each price by number sold and add to total
 for i in range(len(hairstyles)):
-  total_revenue += prices[i] * last_week[i]
+    total_revenue += prices[i] * last_week[i]
 
 print("Total Revenue: " + str(total_revenue))
 
-average_daily_revenue = total_revenue / 7 
+# -----------------------------
+# Calculate average daily revenue
+# -----------------------------
 
-print(average_daily_revenue)
+average_daily_revenue = total_revenue / 7
+
+print("Average Daily Revenue: " + str(average_daily_revenue))
+
+# -----------------------------
+# Find hairstyles under $30 (based on new prices)
+# -----------------------------
 
 cuts_under_30 = [
-  hairstyles[i]
-  for i in range(len(hairstyles))
-  if new_prices[i] > 30 
+    hairstyles[i]
+    for i in range(len(hairstyles))
+    if new_prices[i] < 30   # fixed condition to match the goal
 ]
 
-print(cuts_under_30)
-
-
-
-
-
-
+print("Hairstyles under $30: " + str(cuts_under_30))
