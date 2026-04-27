@@ -1,18 +1,14 @@
 # This program performs basic physics calculations:
 # temperature conversions, force, energy, and work.
 
-# -----------------------------
 # Given values
-# -----------------------------
 
 train_mass = 22680          # mass of the train (kg)
 train_acceleration = 10     # acceleration of the train (m/s^2)
 train_distance = 100        # distance traveled (meters)
 bomb_mass = 1               # mass of the bomb (kg)
 
-# -----------------------------
 # Temperature conversion functions
-# -----------------------------
 
 # Convert Fahrenheit to Celsius
 def f_to_c(f_temp):
@@ -28,9 +24,7 @@ def c_to_f(c_temp):
 f100_in_celsius = f_to_c(100)
 c0_in_fahrenheit = c_to_f(0)
 
-# -----------------------------
 # Physics functions
-# -----------------------------
 
 # Calculate force using the formula: force = mass * acceleration
 def get_force(mass, acceleration):
@@ -48,9 +42,7 @@ def get_work(mass, acceleration, distance):
     # Then calculate work
     return force * distance
 
-# -----------------------------
 # Perform calculations
-# -----------------------------
 
 # Calculate force of the train
 train_force = get_force(train_mass, train_acceleration)
